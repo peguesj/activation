@@ -26,6 +26,9 @@
     font-style: normal;
 }
 
+video {
+    overflow: hidden;
+}
 
 html,
 body,
@@ -145,7 +148,10 @@ li {
 }
 
 .section {
-    padding: 95px 0;
+    padding: 0px 0;
+}
+.section .container-fluid {
+    padding:0;
 }
 
 body {
@@ -451,6 +457,8 @@ strong {
     padding: 0;
     /* margin-top: 1.4em; */
     width: 100%;
+    max-height: 11.4rem;
+    overflow-y: clip;
 }
 
 .box {
@@ -460,11 +468,17 @@ strong {
     transform: translate3d(0, 40px, 0);
     transition: opacity 0.2s, transform 0.35s;
 }
-
+.row:not(:last-child) ul {
+    border-bottom: thin solid white;
+}
+section.section { 
+    border:thin solid white;
+}
 .box.show {
     opacity: 1;
     transform: translate3d(0, 0, 0);
     transition: opacity 0.4s, transform 0.35s;
+    border-right:thin solid white;
 }
 
 .box .inner {
@@ -480,11 +494,13 @@ strong {
     overflow: hidden;
 }
 
-.box img {
+.box img, .box video {
     width: calc(100% + 50px);
     max-width: calc(100% + 50px);
     transition: opacity 0.35s, transform 0.35s;
     transform: translate3d(-40px, 0, 0);
+    height: 20vh;
+    object-fit: cover;
 }
 
 .box a::before {
@@ -496,7 +512,7 @@ strong {
     top: 0;
     left: 0;
     background: #000;
-    z-index: 99;
+    z-index: 9999;
     opacity: 0;
     transition: opacity 0.4s;
 }
